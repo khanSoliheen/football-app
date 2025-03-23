@@ -3,14 +3,14 @@ from flask import Flask, request, jsonify, abort
 from .extensions import db, api
 from .resources import ns
 from flask_cors import CORS
-def create_app(test_config=None):
+def create_app(test_config=None, *args, **kwargs):
     app = Flask(__name__)
-    CORS(app, resources={r"/*": {"origins": "*"}})
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///flaskr.sqlite"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
     api.init_app(app)
     api.add_namespace(ns)
+    CORS(app, resources={r"/*": {"origins": "*"}})
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
@@ -25,3 +25,7 @@ def create_app(test_config=None):
         pass
     # a simple page that says hello
     return app
+
+
+if __name__ == "flaskr":
+    app = create_app()

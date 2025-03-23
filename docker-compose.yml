@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3075:3075"
+    command: gunicorn --bind 0.0.0.0:3075 "flaskr.wsgi:app"
+    environment:
+      FLASK_APP: flaskr:create_app
+      FLASK_ENV: production
+      DATABASE_URL: sqlite:////usr/src/app/instance/flaskr.sqlite
+    volumes:
+      - ./backend/instance:/usr/src/app/instance
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend

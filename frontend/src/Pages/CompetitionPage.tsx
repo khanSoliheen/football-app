@@ -12,7 +12,7 @@ export const CompetitionsPage: FC = () => {
   useEffect(() => {
     const fetchCompetitions = async () => {
       try {
-        const response = await axios.get<Competition[]>('http://127.0.0.1:5000/api/competitions', { params: filters });
+        const response = await axios.get<Competition[]>('http://0.0.0.0:3075/api/competitions', { params: filters });
         setCompetitions(response.data);
       } catch (error) {
         console.error("Error fetching competitions:", error);

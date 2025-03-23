@@ -11,7 +11,7 @@ export const TeamsPage: FC = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get<Team[]>('http://127.0.0.1:5000/api/teams', { params: filters });
+        const response = await axios.get<Team[]>('http://0.0.0.0:3075/api/teams', { params: filters });
         setTeams(response.data);
       } catch (error) {
         console.error('Error fetching teams:', error);

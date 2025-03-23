@@ -11,7 +11,7 @@ export const MatchesPage: FC = () => {
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const response = await axios.get<Match[]>('http://127.0.0.1:5000/api/matches', { 
+        const response = await axios.get<Match[]>('http://0.0.0.0:3075/api/matches', { 
           params: status ? { status } : {}  // Send status if selected
         });
         setMatches(response.data);
