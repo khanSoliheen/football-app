@@ -7,6 +7,7 @@ A full-stack football application with a **Flask backend** and a **Vite (React) 
 - **Frontend**: React with Vite
 - **Database**: SQLite (with persistent storage)
 - **Containerized**: Runs with Docker & Docker Compose
+- **SwaggerDocument**: http://0.0.0.0:3075
 
 ---
 
@@ -21,6 +22,6 @@ Ensure you have the following installed:
 
 ### 1️⃣ **Clone the Repository**
 ```sh
-git clone https://github.com/your-username/football-app.git
+git clone https://github.com/khanSoliheen/football-app.git
 cd football-app
 docker-compose up --build -d
