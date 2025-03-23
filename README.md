@@ -74,7 +74,11 @@ cd football-app
 # Start containers
 docker-compose up --build -d
 
-# Access services:
-# Frontend → http://localhost:5173/competition
-# Backend API → http://0.0.0.0:3075
-# Swagger Docs → http://0.0.0.0:3075
+## 🌐 Access Services
+- **[Frontend](http://localhost:5173/competition)** - Main application interface  
+- **[Backend API](http://localhost:3075)** - REST API endpoints  
+- **[Swagger Documentation](http://localhost:3075/api)** - Interactive API documentation  
+
+🔔 **Note:** If running in Docker, replace `localhost` with:
+- `0.0.0.0` if accessing from host machine
+- Container IP if accessing from another network
