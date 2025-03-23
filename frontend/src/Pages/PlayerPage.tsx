@@ -12,7 +12,7 @@ export const PlayersPage: FC = () => {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const response = await axios.get<Player[]>('http://127.0.0.1:5000/api/players', { params: filters });
+        const response = await axios.get<Player[]>('http://0.0.0.0:3075/api/players', { params: filters });
         setPlayers(response.data);
       } catch (error) {
         console.error('Error fetching players:', error);
